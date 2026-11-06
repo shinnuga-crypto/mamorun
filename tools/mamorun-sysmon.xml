@@ -1,0 +1,28 @@
+<!--
+  GuardianMascot uses three kinds of events: process start, DNS query and autorun registration.
+  Everything else is turned off to keep the log small.
+  An empty onmatch="exclude" logs everything of that type. An empty onmatch="include" logs nothing.
+-->
+<Sysmon schemaversion="4.90">
+  <HashAlgorithms>SHA256</HashAlgorithms>
+  <EventFiltering>
+    <ProcessCreate onmatch="exclude"/>
+    <DnsQuery onmatch="exclude"/>
+    <RegistryEvent onmatch="include">
+      <TargetObject condition="contains">\CurrentVersion\Run</TargetObject>
+      <TargetObject condition="contains">\InprocServer32</TargetObject>
+    </RegistryEvent>
+    <FileCreateTime onmatch="include"/>
+    <NetworkConnect onmatch="include"/>
+    <ProcessTerminate onmatch="include"/>
+    <DriverLoad onmatch="include"/>
+    <ImageLoad onmatch="include"/>
+    <CreateRemoteThread onmatch="include"/>
+    <RawAccessRead onmatch="include"/>
+    <ProcessAccess onmatch="include"/>
+    <FileCreate onmatch="include"/>
+    <FileCreateStreamHash onmatch="include"/>
+    <PipeEvent onmatch="include"/>
+    <WmiEvent onmatch="include"/>
+  </EventFiltering>
+</Sysmon>
