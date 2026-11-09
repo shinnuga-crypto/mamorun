@@ -228,7 +228,7 @@ python main.py --self-check out.json --shots-dir s   # 実機の自己検査（�
 python main.py --scan-once out.json                  # 今の通信を1回判定（何も止めない）
 python main.py --gate-check out.json                 # 遮断の実機検査（要管理者。検査用ポートだけを止める）
 python main.py --trap-check out.json                 # 罠の実機検査（要管理者。作業フォルダの偽物だけを使い、監査の設定は元に戻す）
-powershell -ExecutionPolicy Bypass -File build.ps1   # テスト→自己検査→EXE→EXE自己検査→ZIP
+powershell -ExecutionPolicy Bypass -File build.ps1   # テスト→自己検査→EXE→EXE自己検査→ZIP。release\最新版\GuardianMascot.exe に出力し、1つ前の版だけ release\1つ前 に残す
 ```
 
 | ファイル | 役割 |
