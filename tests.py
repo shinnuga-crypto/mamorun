@@ -1331,9 +1331,11 @@ class CharacterTests(unittest.TestCase):
                 self.assertNotIn("{", text, f"{character.id}.{key}")
 
     def test_lines_differ_between_characters(self):
-        luce, ansel = CHARACTERS["luce"], CHARACTERS["ansel"]
-        for key in luce.lines:
-            self.assertNotEqual(luce.lines[key], ansel.lines[key], key)
+        import itertools
+
+        for first, second in itertools.combinations(CHARACTERS.values(), 2):
+            for key in first.lines:
+                self.assertNotEqual(first.lines[key], second.lines[key], f"{first.id}/{second.id}: {key}")
 
     def test_unknown_character_falls_back(self):
         for value in (None, "", "nobody", 3, ["luce"]):

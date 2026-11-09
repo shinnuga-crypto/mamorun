@@ -31,6 +31,7 @@ $common = @(
     '--noconfirm', '--clean', '--windowed', '--name', 'GuardianMascot', '--specpath', "$work\spec",
     '--add-data', "$PSScriptRoot\assets\mascot\luce;assets\mascot\luce",
     '--add-data', "$PSScriptRoot\assets\mascot\ansel;assets\mascot\ansel",
+    '--add-data', "$PSScriptRoot\assets\mascot\silva;assets\mascot\silva",
     '--exclude-module', 'PyQt6.QtWebEngineWidgets', '--exclude-module', 'PyQt6.QtWebEngineCore',
     '--exclude-module', 'PyQt6.QtNetwork', '--exclude-module', 'PyQt6.QtQml', '--exclude-module', 'PyQt6.QtQuick',
     '--exclude-module', 'tkinter', '--exclude-module', 'PIL', '--exclude-module', 'numpy'
